@@ -338,7 +338,7 @@ void il2cpp_api_init(void *handle) {
     bool isInit = false;
     while (!isInit) {
         LOGI("Waiting for il2cpp_init...");
-        LOGI("isInit: %p", isInit);
+        LOGI("isInit: %p", &isInit);
         sleep(1);
     }
     auto domain = il2cpp_domain_get();
