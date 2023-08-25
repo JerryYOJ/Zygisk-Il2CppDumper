@@ -341,15 +341,13 @@ void il2cpp_api_init(void *handle) {
         LOGI("isInit: %p", &isInit);
         sleep(1);
     }
-    auto domain = il2cpp_domain_get();
-    il2cpp_thread_attach(domain);
+    il2cpp_thread_attach(0);
 }
 
 void il2cpp_dump(const char *outDir) {
     LOGI("dumping...");
     size_t size;
-    auto domain = il2cpp_domain_get();
-    auto assemblies = il2cpp_domain_get_assemblies(domain, &size);
+    auto assemblies = il2cpp_domain_get_assemblies(0, &size);
     std::stringstream imageOutput;
     for (int i = 0; i < size; ++i) {
         auto image = il2cpp_assembly_get_image(assemblies[i]);
