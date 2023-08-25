@@ -335,8 +335,10 @@ void il2cpp_api_init(void *handle) {
         LOGE("Failed to initialize il2cpp api.");
         return;
     }
-    while (!il2cpp_is_vm_thread(nullptr)) {
+    bool isInit = false;
+    while (!isInit) {
         LOGI("Waiting for il2cpp_init...");
+        LOGI("isInit: %p", isInit);
         sleep(1);
     }
     auto domain = il2cpp_domain_get();
